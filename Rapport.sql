@@ -167,7 +167,7 @@ CREATE VIEW Holdtræner_view AS
 SELECT TrænerNavn, Stilling, HoldNavn 
 FROM Holdtræner natural join Træner;
 
-# Does it work
+
 
 
 
