@@ -94,8 +94,8 @@ INSERT TimeSlot VALUES
 ('A','M','18:00','20:00'),
 ('A','O','18:00','20:00'),
 ('A','F','18:00','20:00'),
-('B','M','19:00','21:00'),
-('B','O','19:00','21:00'),
+('B','M','20:00','21:00'),
+('B','To','19:00','21:00'),
 ('F','Ti','19:00','21:00'),
 ('C','M','20:00','21:00'),
 ('G','O','20:00','21:00'),
@@ -149,7 +149,8 @@ INSERT HoldTræner VALUES
 ('Badminton B', 'AC'),
 ('Badminton B', 'AF'),
 ('Håndbold B', 'AD'),
-('Håndbold B', 'AE');
+('Håndbold B', 'AE'),
+('Håndbold A', 'AF');
 
 INSERT Eventss VALUES
 ('DA', 'Elevfest - Holmebæk skolen','K', '2', 'Fodbold'),
@@ -164,7 +165,7 @@ INSERT TræningsSession VALUES
 ('CC','Bane 1B','C','Badminton B'),
 ('CD','Bane 2B','C','Badminton B'),
 ('CE','Bane 1H','D','Håndbold B'),
-('CF','Bane 1H','H','Håndbold B');
+('CF','Bane 1H','H','Håndbold A');
 
 
 CREATE VIEW Holdtræner_view AS
