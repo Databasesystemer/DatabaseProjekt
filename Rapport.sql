@@ -1,3 +1,4 @@
+Drop database baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
