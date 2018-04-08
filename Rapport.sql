@@ -177,12 +177,12 @@ FROM Holdtræner natural join Træner;
 
 # Does it work
 
-drop user Iben@localhost;
-drop user Marie@localhost;
-drop user Jens@localhost;
-drop user Børge@localhost;
-drop user Hans@localhost;
-drop user Mikkel@localhost;
+drop user IF EXISTS Iben@localhost;
+drop user IF EXISTS Marie@localhost;
+drop user IF EXISTS Jens@localhost;
+drop user IF EXISTS Børge@localhost;
+drop user IF EXISTS Hans@localhost;
+drop user IF EXISTS Mikkel@localhost;
 flush privileges;
 
 #Create Users
@@ -202,7 +202,7 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
-show grants for 'Iben'@'localhost';
+#show grants for 'Iben'@'localhost';
 
 
     
