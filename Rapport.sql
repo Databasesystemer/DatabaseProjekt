@@ -149,7 +149,8 @@ INSERT HoldTræner VALUES
 ('Badminton B', 'AC'),
 ('Badminton B', 'AF'),
 ('Håndbold B', 'AD'),
-('Håndbold B', 'AE');
+('Håndbold B', 'AE'),
+('Håndbold A', 'AF');
 
 INSERT Eventss VALUES
 ('DA', 'Elevfest - Holmebæk skolen','K', '2', 'Fodbold'),
@@ -164,7 +165,7 @@ INSERT TræningsSession VALUES
 ('CC','Bane 1B','C','Badminton B'),
 ('CD','Bane 2B','C','Badminton B'),
 ('CE','Bane 1H','D','Håndbold B'),
-('CF','Bane 1H','H','Håndbold B');
+('CF','Bane 1H','H','Håndbold A');
 
 
 CREATE VIEW Holdtræner_view AS
@@ -173,8 +174,32 @@ FROM Holdtræner natural join Træner;
 
 # Does it work
 
+drop user Iben@localhost;
+drop user Marie@localhost;
+drop user Jens@localhost;
+drop user Børge@localhost;
+drop user Hans@localhost;
+drop user Mikkel@localhost;
+flush privileges;
+
+#Create Users
+create user 'Iben'@'localhost' identified by 'SetPassword' ;
+create user 'Marie'@'localhost' identified by 'SetPassword' ;
+create user 'Jens'@'localhost' identified by 'SetPassword' ;
+create user 'Børge'@'localhost' identified by 'SetPassword' ;
+create user 'Hans'@'localhost' identified by 'SetPassword' ;
+create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
 
 
+
+grant select on baneoversigt.* to 'Mikkel'@'localhost';
+grant select on baneoversigt.* to 'Børge'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Iben'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
+
+show grants for 'Iben'@'localhost';
 
 
     
