@@ -56,17 +56,19 @@ CREATE TABLE Eventss
      BygningsNavn	VARCHAR(15),
 	 PRIMARY KEY(EventID),
      FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE SET NULL,
-     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 		ON DELETE SET NULL
+     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
 
 CREATE TABLE Træner
-	(TrænerID		VARCHAR(15) NOT NULL,
-	 TrænerNavn 	VARCHAR(40),
-	 Stilling		VARCHAR(40),
-     Telefonnr		DECIMAL(8,0),
-     Løn			DECIMAL(4,0),
-	 PRIMARY KEY(TrænerID)
+	(TrænerID			VARCHAR(15) NOT NULL,
+	 TrænerNavn 		VARCHAR(40),
+	 Stilling			VARCHAR(40),
+     Telefonnr			DECIMAL(8,0),
+     Løn				DECIMAL(4,0),
+     TilhørerBygning	VARCHAR(15),
+	 PRIMARY KEY(TrænerID),
+     FOREIGN KEY(TilhørerBygning) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
 
     
@@ -136,12 +138,13 @@ INSERT Hold VALUES
 ('Badminton B', 'Niveau B', '12');
 
 INSERT Træner VALUES
-('AA', 'Jens', 'Træner','21436587','100'),
-('AB', 'Iben', 'Træner','21928584','100'),
-('AC', 'Mikkel','Assistent','86895476','50'),
-('AD', 'Børge' , 'Assistent','45678912','50'),
-('AE', 'Hans', 'Træner', '43547674','100'),
-('AF','Marie','Træner','45867930','100');
+('AA', 'Jens', 'Træner','21436587','100', 'Fodbold'),
+('AB', 'Iben', 'Træner','21928584','100', Null),
+('AC', 'Mikkel','Assistent','86895476','50', 'Badminton'),
+('AD', 'Børge' , 'Assistent','45678912','50', 'Håndbold'),
+('AE', 'Hans', 'Træner', '43547674','100', 'Håndbold'),
+('AF','Marie','Træner','45867930','100', 'Badminton'),
+('AG','Tulle','Træner','36729185','100', 'Håndbold');
 
 INSERT HoldTræner VALUES
 ('Fodbold A', 'AA'),
@@ -150,7 +153,7 @@ INSERT HoldTræner VALUES
 ('Badminton B', 'AF'),
 ('Håndbold B', 'AD'),
 ('Håndbold B', 'AE'),
-('Håndbold A', 'AF');
+('Håndbold A', 'AG');
 
 INSERT Eventss VALUES
 ('DA', 'Elevfest - Holmebæk skolen','K', '2', 'Fodbold'),
