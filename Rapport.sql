@@ -32,10 +32,9 @@ CREATE TABLE Bygning
     
 
 CREATE TABLE Baner
-	(BaneID				VARCHAR(15) NOT NULL,
-	 BaneNavn			VARCHAR(15),
+	(BaneNavn			VARCHAR(15) NOT NULL,
      BygningsNavn		VARCHAR(15),
-	 PRIMARY KEY(BaneID),
+	 PRIMARY KEY(BaneNavn),
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
@@ -77,13 +76,13 @@ CREATE TABLE Holdtræner
  
 CREATE TABLE TræningsSession
 	(TræningID		VARCHAR(15) NOT NULL,
-	 BaneID	 	    VARCHAR(15) NOT NULL,
+	 BaneNavn	 	VARCHAR(15) NOT NULL,
 	 TimeslotID		VARCHAR(15) NOT NULL,
-     HoldtrænerID         VARCHAR(15) NOT NULL, 
+     HoldtrænerID   VARCHAR(15) NOT NULL, 
 	 PRIMARY KEY(TræningID),
-     FOREIGN KEY(BaneID) 		REFERENCES Baner(BaneID) ON DELETE cascade,
+     FOREIGN KEY(BaneNavn) 		REFERENCES Baner(BaneNavn) ON DELETE cascade,
      FOREIGN KEY(TimeSlotID) 	REFERENCES TimeSlot(TimeSlotID) ON DELETE CASCADE,
-     FOREIGN KEY(HoldtrænerID) 		REFERENCES Holdtræner(HoldtrænerID) ON DELETE CASCADE
+     FOREIGN KEY(HoldtrænerID) 	REFERENCES Holdtræner(HoldtrænerID) ON DELETE CASCADE
 	);
     
     
@@ -116,13 +115,13 @@ INSERT Bygning VALUES
 ('Tennis', '50','Nej', 'Ja');
 
 INSERT Baner VALUES
-('Æ', 'Bane 1','Fodbold'),
-('Ø', 'Bane 1','Håndbold'),
-('Å','Bane 1','Badminton'),
-('Y','Bane 2','Badminton'),
-('W','Bane 3','Badminton'),
-('V','Bane 4','Badminton'),
-('Z','Bane 1','Tennis');
+('Bane 1F','Fodbold'),
+('Bane 1H','Håndbold'),
+('Bane 1B','Badminton'),
+('Bane 2B','Badminton'),
+('Bane 3B','Badminton'),
+('Bane 4B','Badminton'),
+('Bane 1T','Tennis');
 
 INSERT Hold VALUES 
 ('Fodbold A','Niveau A', '20'),
@@ -156,12 +155,12 @@ INSERT Eventss VALUES
 ('DE', '9A - Hastrupskolen','M', '28','Håndbold');
 
 INSERT TræningsSession VALUES
-('CA','Æ','A','BA'),
-('CB','Æ','B','BB'),
-('CC','Å','C','BC'),
-('CD','Y','C','BC'),
-('CE','Ø','D','BD'),
-('CF','Ø','H','BD');
+('CA','Bane 1F','A','BA'),
+('CB','Bane 1F','B','BB'),
+('CC','Bane 1B','C','BC'),
+('CD','Bane 2B','C','BC'),
+('CE','Bane 1H','D','BD'),
+('CF','Bane 1H','H','BD');
 
 
 CREATE VIEW Holdtræner_view AS
