@@ -1,3 +1,4 @@
+# eksempel på Join og Order by
 SELECT BaneNavn, BygningsNavn,HoldNavn, TrænerNavn, DayCode, StartTime, EndTime
 FROM TræningsSession 
 join  Holdtræner on  TræningsSession.HoldtrænerID = Holdtræner.HoldtrænerID
