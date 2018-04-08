@@ -1,3 +1,4 @@
+Drop database baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
@@ -79,11 +80,11 @@ CREATE TABLE TræningsSession
 	(TræningID		VARCHAR(15) NOT NULL,
 	 BaneNavn	 	VARCHAR(15) NOT NULL,
 	 TimeslotID		VARCHAR(15) NOT NULL,
-     HoldNavn   VARCHAR(15) NOT NULL, 
+     HoldNavn   	VARCHAR(40) NOT NULL, 
 	 PRIMARY KEY(TræningID),
      FOREIGN KEY(BaneNavn) 		REFERENCES Baner(BaneNavn) ON DELETE cascade,
      FOREIGN KEY(TimeSlotID) 	REFERENCES TimeSlot(TimeSlotID) ON DELETE CASCADE,
-     FOREIGN KEY(HoldNavn) 	REFERENCES Holdtræner(HoldNavn) ON DELETE CASCADE
+     FOREIGN KEY(HoldNavn) 		REFERENCES Holdtræner(HoldNavn) ON DELETE CASCADE
 	);
     
     
