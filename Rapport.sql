@@ -177,8 +177,32 @@ FROM Holdtræner natural join Træner;
 
 # Does it work
 
+drop user Iben@localhost;
+drop user Marie@localhost;
+drop user Jens@localhost;
+drop user Børge@localhost;
+drop user Hans@localhost;
+drop user Mikkel@localhost;
+flush privileges;
+
+#Create Users
+create user 'Iben'@'localhost' identified by 'SetPassword' ;
+create user 'Marie'@'localhost' identified by 'SetPassword' ;
+create user 'Jens'@'localhost' identified by 'SetPassword' ;
+create user 'Børge'@'localhost' identified by 'SetPassword' ;
+create user 'Hans'@'localhost' identified by 'SetPassword' ;
+create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
 
 
+
+grant select on baneoversigt.* to 'Mikkel'@'localhost';
+grant select on baneoversigt.* to 'Børge'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Iben'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
+
+show grants for 'Iben'@'localhost';
 
 
     
