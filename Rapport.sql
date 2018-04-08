@@ -27,6 +27,7 @@ CREATE TABLE Bygning
      Kapacitet				DECIMAL(3,0),
      Handicapfaciliteter	ENUM('Nej','Ja'),
      Badefacilitet 			ENUM('Nej','Ja'),
+     Midler					DECIMAL(6,0),
 	 PRIMARY KEY(BygningsNavn)
      );
     
@@ -63,6 +64,7 @@ CREATE TABLE Træner
 	 TrænerNavn 	VARCHAR(40),
 	 Stilling		VARCHAR(40),
      Telefonnr		DECIMAL(8,0),
+     Løn			DECIMAL(4,0),
 	 PRIMARY KEY(TrænerID)
 	);
 
@@ -109,10 +111,10 @@ INSERT TimeSlot VALUES
 
 
 INSERT Bygning VALUES
-('Fodbold','100', 'Ja', 'Nej'),
-('Håndbold','150','Nej', 'Ja'),
-('Badminton', '50','Ja', 'Ja'),
-('Tennis', '50','Nej', 'Ja');
+('Fodbold','100', 'Ja', 'Nej','10000'),
+('Håndbold','150','Nej', 'Ja','8000'),
+('Badminton', '50','Ja', 'Ja','5000'),
+('Tennis', '50','Nej', 'Ja','5000');
 
 INSERT Baner VALUES
 ('Bane 1F','Fodbold'),
@@ -132,12 +134,12 @@ INSERT Hold VALUES
 ('Badminton B', 'Niveau B', '12');
 
 INSERT Træner VALUES
-('AA', 'Jens', 'Træner','21436587'),
-('AB', 'Iben', 'Træner','21928584'),
-('AC', 'Mikkel','Assistent','86895476'),
-('AD', 'Børge' , 'Assistent','45678912'),
-('AE', 'Hans', 'Træner', '43547674'),
-('AF','Marie','Træner','45867930');
+('AA', 'Jens', 'Træner','21436587','100'),
+('AB', 'Iben', 'Træner','21928584','100'),
+('AC', 'Mikkel','Assistent','86895476','50'),
+('AD', 'Børge' , 'Assistent','45678912','50'),
+('AE', 'Hans', 'Træner', '43547674','100'),
+('AF','Marie','Træner','45867930','100');
 
 INSERT HoldTræner VALUES
 ('BA', 'Fodbold A', 'AA'),
