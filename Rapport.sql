@@ -70,21 +70,20 @@ CREATE TABLE Træner
 
     
 CREATE TABLE Holdtræner
-	(HoldtrænerID	VARCHAR(15) NOT NULL,
-	 HoldNavn 		VARCHAR(15) NOT NULL,
+	(HoldNavn 		VARCHAR(15) NOT NULL,
 	 TrænerID		VARCHAR(15) NOT NULL,
-	 PRIMARY KEY(HoldtrænerID, TrænerID, HoldNavn)
+	 PRIMARY KEY(TrænerID, HoldNavn)
 	);
  
 CREATE TABLE TræningsSession
 	(TræningID		VARCHAR(15) NOT NULL,
 	 BaneNavn	 	VARCHAR(15) NOT NULL,
 	 TimeslotID		VARCHAR(15) NOT NULL,
-     HoldtrænerID   VARCHAR(15) NOT NULL, 
+     HoldNavn   VARCHAR(15) NOT NULL, 
 	 PRIMARY KEY(TræningID),
      FOREIGN KEY(BaneNavn) 		REFERENCES Baner(BaneNavn) ON DELETE cascade,
      FOREIGN KEY(TimeSlotID) 	REFERENCES TimeSlot(TimeSlotID) ON DELETE CASCADE,
-     FOREIGN KEY(HoldtrænerID) 	REFERENCES Holdtræner(HoldtrænerID) ON DELETE CASCADE
+     FOREIGN KEY(HoldNavn) 	REFERENCES Holdtræner(HoldNavn) ON DELETE CASCADE
 	);
     
     
@@ -142,12 +141,12 @@ INSERT Træner VALUES
 ('AF','Marie','Træner','45867930','100');
 
 INSERT HoldTræner VALUES
-('BA', 'Fodbold A', 'AA'),
-('BB', 'Fodbold B', 'AA'),
-('BC', 'Badminton B', 'AC'),
-('BC', 'Badminton B', 'AF'),
-('BD', 'Håndbold B', 'AD'),
-('BD', 'Håndbold B', 'AE');
+('Fodbold A', 'AA'),
+('Fodbold B', 'AA'),
+('Badminton B', 'AC'),
+('Badminton B', 'AF'),
+('Håndbold B', 'AD'),
+('Håndbold B', 'AE');
 
 INSERT Eventss VALUES
 ('DA', 'Elevfest - Holmebæk skolen','K', '2', 'Fodbold'),
@@ -157,19 +156,19 @@ INSERT Eventss VALUES
 ('DE', '9A - Hastrupskolen','M', '28','Håndbold');
 
 INSERT TræningsSession VALUES
-('CA','Bane 1F','A','BA'),
-('CB','Bane 1F','B','BB'),
-('CC','Bane 1B','C','BC'),
-('CD','Bane 2B','C','BC'),
-('CE','Bane 1H','D','BD'),
-('CF','Bane 1H','H','BD');
+('CA','Bane 1F','A','Fodbold A'),
+('CB','Bane 1F','B','Fodbold B'),
+('CC','Bane 1B','C','Badminton B'),
+('CD','Bane 2B','C','Badminton B'),
+('CE','Bane 1H','D','Håndbold B'),
+('CF','Bane 1H','H','Håndbold B');
 
 
 CREATE VIEW Holdtræner_view AS
 SELECT TrænerNavn, Stilling, HoldNavn 
 FROM Holdtræner natural join Træner;
 
-
+# Does it work
 
 
 
