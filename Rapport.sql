@@ -32,10 +32,9 @@ CREATE TABLE Bygning
     
 
 CREATE TABLE Baner
-	(BaneID				VARCHAR(15) NOT NULL,
-	 BaneNavn			VARCHAR(15),
+	(BaneNavn			VARCHAR(15) NOT NULL,
      BygningsNavn		VARCHAR(15),
-	 PRIMARY KEY(BaneID),
+	 PRIMARY KEY(BaneNavn),
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
@@ -77,13 +76,13 @@ CREATE TABLE Holdtræner
  
 CREATE TABLE TræningsSession
 	(TræningID		VARCHAR(15) NOT NULL,
-	 BaneID	 	    VARCHAR(15) NOT NULL,
+	 BaneNavn	 	VARCHAR(15) NOT NULL,
 	 TimeslotID		VARCHAR(15) NOT NULL,
-     HoldtrænerID         VARCHAR(15) NOT NULL, 
+     HoldtrænerID   VARCHAR(15) NOT NULL, 
 	 PRIMARY KEY(TræningID),
-     FOREIGN KEY(BaneID) 		REFERENCES Baner(BaneID) ON DELETE cascade,
+     FOREIGN KEY(BaneNavn) 		REFERENCES Baner(BaneNavn) ON DELETE cascade,
      FOREIGN KEY(TimeSlotID) 	REFERENCES TimeSlot(TimeSlotID) ON DELETE CASCADE,
-     FOREIGN KEY(HoldtrænerID) 		REFERENCES Holdtræner(HoldtrænerID) ON DELETE CASCADE
+     FOREIGN KEY(HoldtrænerID) 	REFERENCES Holdtræner(HoldtrænerID) ON DELETE CASCADE
 	);
     
     
