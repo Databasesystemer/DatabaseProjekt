@@ -204,5 +204,6 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'
 
 #show grants for 'Iben'@'localhost';
 
+grant ALL on * to 'Iben'@'localhost';
 
     
