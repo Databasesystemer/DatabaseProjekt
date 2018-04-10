@@ -192,7 +192,7 @@ create user 'Jens'@'localhost' identified by 'SetPassword' ;
 create user 'Børge'@'localhost' identified by 'SetPassword' ;
 create user 'Hans'@'localhost' identified by 'SetPassword' ;
 create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
-
+create user 'Iben'@'localhost' identified by 'SetPassword' ;
 
 
 grant select on baneoversigt.* to 'Mikkel'@'localhost';
@@ -203,7 +203,7 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
 #show grants for 'Iben'@'localhost';
-
+drop user IF EXISTS Iben@localhost;
 grant ALL on * to 'Iben'@'localhost';
 
     
