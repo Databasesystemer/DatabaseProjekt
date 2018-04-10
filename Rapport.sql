@@ -1,4 +1,4 @@
-Drop database baneoversigt;
+Drop database if exists baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
@@ -186,7 +186,7 @@ drop user IF EXISTS Mikkel@localhost;
 flush privileges;
 
 #Create Users
-create user 'Iben'@'localhost' identified by 'SetPassword' ;
+create user 'Anne'@'localhost' identified by 'SetPassword' ;
 create user 'Marie'@'localhost' identified by 'SetPassword' ;
 create user 'Jens'@'localhost' identified by 'SetPassword' ;
 create user 'Børge'@'localhost' identified by 'SetPassword' ;
@@ -197,7 +197,7 @@ create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
 
 grant select on baneoversigt.* to 'Mikkel'@'localhost';
 grant select on baneoversigt.* to 'Børge'@'localhost';
-grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Iben'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Anne'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
