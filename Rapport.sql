@@ -139,7 +139,7 @@ INSERT Hold VALUES
 
 INSERT Træner VALUES
 ('AA', 'Jens', 'Træner','21436587','100', 'Fodbold'),
-('AB', 'Iben', 'Træner','21928584','100', Null),
+('AB', 'Anne', 'Træner','21928584','100', Null),
 ('AC', 'Mikkel','Assistent','86895476','50', 'Badminton'),
 ('AD', 'Børge' , 'Assistent','45678912','50', 'Håndbold'),
 ('AE', 'Hans', 'Træner', '43547674','100', 'Håndbold'),
@@ -177,7 +177,7 @@ FROM Holdtræner natural join Træner;
 
 # Does it work
 
-drop user IF EXISTS Iben@localhost;
+drop user IF EXISTS Anne@localhost;
 drop user IF EXISTS Marie@localhost;
 drop user IF EXISTS Jens@localhost;
 drop user IF EXISTS Børge@localhost;
