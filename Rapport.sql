@@ -37,7 +37,7 @@ CREATE TABLE Baner
 	(BaneNavn			VARCHAR(15) NOT NULL,
      BygningsNavn		VARCHAR(15),
 	 PRIMARY KEY(BaneNavn),
-     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
+     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE cascade
 	);
     
     CREATE TABLE Hold
@@ -204,6 +204,6 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'
 
 #show grants for 'Iben'@'localhost';
 drop user IF EXISTS 'Iben'@'localhost';
-grant ALL on * to 'Iben'@'localhost';
+
 
     
