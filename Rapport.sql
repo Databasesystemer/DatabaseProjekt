@@ -1,4 +1,4 @@
-Drop database baneoversigt;
+Drop database if exists baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
@@ -37,7 +37,7 @@ CREATE TABLE Baner
 	(BaneNavn			VARCHAR(15) NOT NULL,
      BygningsNavn		VARCHAR(15),
 	 PRIMARY KEY(BaneNavn),
-     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
+     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE cascade
 	);
     
     CREATE TABLE Hold
@@ -55,7 +55,7 @@ CREATE TABLE Eventss
 	 Uge			DECIMAL(2,0),
      BygningsNavn	VARCHAR(15),
 	 PRIMARY KEY(EventID),
-     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE SET NULL,
+     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE cascade,
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
@@ -139,7 +139,7 @@ INSERT Hold VALUES
 
 INSERT Træner VALUES
 ('AA', 'Jens', 'Træner','21436587','100', 'Fodbold'),
-('AB', 'Iben', 'Træner','21928584','100', Null),
+('AB', 'Anne', 'Træner','21928584','100', Null),
 ('AC', 'Mikkel','Assistent','86895476','50', 'Badminton'),
 ('AD', 'Børge' , 'Assistent','45678912','50', 'Håndbold'),
 ('AE', 'Hans', 'Træner', '43547674','100', 'Håndbold'),
@@ -177,7 +177,7 @@ FROM Holdtræner natural join Træner;
 
 # Does it work
 
-drop user IF EXISTS Iben@localhost;
+drop user IF EXISTS Anne@localhost;
 drop user IF EXISTS Marie@localhost;
 drop user IF EXISTS Jens@localhost;
 drop user IF EXISTS Børge@localhost;
@@ -186,23 +186,24 @@ drop user IF EXISTS Mikkel@localhost;
 flush privileges;
 
 #Create Users
-create user 'Iben'@'localhost' identified by 'SetPassword' ;
+create user 'Anne'@'localhost' identified by 'SetPassword' ;
 create user 'Marie'@'localhost' identified by 'SetPassword' ;
 create user 'Jens'@'localhost' identified by 'SetPassword' ;
 create user 'Børge'@'localhost' identified by 'SetPassword' ;
 create user 'Hans'@'localhost' identified by 'SetPassword' ;
 create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
-
+create user 'Iben'@'localhost' identified by 'SetPassword' ;
 
 
 grant select on baneoversigt.* to 'Mikkel'@'localhost';
 grant select on baneoversigt.* to 'Børge'@'localhost';
-grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Iben'@'localhost';
+grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Anne'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
 #show grants for 'Iben'@'localhost';
+drop user IF EXISTS 'Iben'@'localhost';
 
 
     
