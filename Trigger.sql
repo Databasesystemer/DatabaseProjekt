@@ -3,9 +3,6 @@ USE BaneOversigt;
 
 select * from Eventss; 
 
-INSERT Eventss VALUES
-('KA', 'g','K', '19','Fodbold');
-
 DELIMITER $$
 CREATE TRIGGER Eventss_for_Before_Insert
 BEFORE INSERT ON Eventss FOR EACH ROW
@@ -15,9 +12,14 @@ DECLARE TimeSlotID_ VARCHAR(2);
 SELECT Uge,TimeSlotID INTO Uge_,TimeSlotID_ FROM Eventss WHERE Uge = NEW.Uge;
 IF ( NEW.TimeSlotID = TimeSlotID_ ) THEN
 SIGNAL SQLSTATE 'HY000'
-SET MYSQL_ERRNO = 1525, MESSAGE_TEXT = 'Uge og TimeSlotID er allerede optaget til et andet event'; 
+SET MYSQL_ERRNO = 1525, 
+MESSAGE_TEXT = 'Uge og TimeSlotID er allerede optaget til et andet event'; 
 END IF;
 END; $$ 
 DELIMITER ;
 
+INSERT Eventss VALUES
+('KA', 'g','K', '2','Fodbold');
+
 select * from Eventss; 
+delete from Eventss where EventID = 'KA';
