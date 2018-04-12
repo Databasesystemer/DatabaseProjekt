@@ -203,14 +203,13 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
-<<<<<<< HEAD
+
 show grants for 'Iben'@'localhost';
 #drop user IF EXISTS 'Iben'@'localhost';
 grant ALL on * to 'Iben'@'localhost';
-=======
 #show grants for 'Iben'@'localhost';
 drop user IF EXISTS 'Iben'@'localhost';
 
->>>>>>> 6a1702be7cfe56d4a40b41afea13baab1dd00436
+
 
     
