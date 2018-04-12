@@ -55,7 +55,7 @@ CREATE TABLE Eventss
 	 Uge			DECIMAL(2,0),
      BygningsNavn	VARCHAR(15),
 	 PRIMARY KEY(EventID),
-     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE SET NULL,
+     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE cascade,
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
