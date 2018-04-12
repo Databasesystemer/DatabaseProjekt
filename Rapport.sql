@@ -1,4 +1,4 @@
-Drop database if exists baneoversigt;
+Drop database if exists Baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
@@ -160,7 +160,8 @@ INSERT Eventss VALUES
 ('DB', 'Fodbold fest','K', '5','Fodbold'),
 ('DC', 'Kvinde yoga - Pensionister','L', '10','Badminton'),
 ('DD', '4C - Herfølgeskole','L', '20','Håndbold'),
-('DE', '9A - Hastrupskolen','M', '28','Håndbold');
+('DE', '9A - Hastrupskolen','M', '28','Håndbold'),
+('DF','Tantra for begyndere','M','28','Fodbold');
 
 INSERT TræningsSession VALUES
 ('CA','Bane 1F','A','Fodbold A'),
@@ -202,8 +203,8 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
-#show grants for 'Iben'@'localhost';
-drop user IF EXISTS 'Iben'@'localhost';
+show grants for 'Iben'@'localhost';
+#drop user IF EXISTS 'Iben'@'localhost';
 grant ALL on * to 'Iben'@'localhost';
 
     
