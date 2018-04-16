@@ -34,7 +34,7 @@ CREATE TABLE Bygning
     
 
 CREATE TABLE Baner
-	(BaneNavn			VARCHAR(15) NOT NULL,
+	(BaneNavn			VARCHAR(15) NOT NULL ,
      BygningsNavn		VARCHAR(15),
 	 PRIMARY KEY(BaneNavn),
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE cascade
@@ -193,7 +193,6 @@ create user 'Jens'@'localhost' identified by 'SetPassword' ;
 create user 'Børge'@'localhost' identified by 'SetPassword' ;
 create user 'Hans'@'localhost' identified by 'SetPassword' ;
 create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
-create user 'Iben'@'localhost' identified by 'SetPassword' ;
 
 
 grant select on baneoversigt.* to 'Mikkel'@'localhost';
@@ -204,11 +203,11 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
 
-show grants for 'Iben'@'localhost';
-#drop user IF EXISTS 'Iben'@'localhost';
-grant ALL on * to 'Iben'@'localhost';
 #show grants for 'Iben'@'localhost';
-drop user IF EXISTS 'Iben'@'localhost';
+#drop user IF EXISTS 'Iben'@'localhost';
+#grant ALL on * to 'Iben'@'localhost';
+#show grants for 'Iben'@'localhost';
+#drop user IF EXISTS 'Iben'@'localhost';
 
 
 
