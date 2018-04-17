@@ -21,3 +21,9 @@ From Eventss
 natural  left outer join TimeSlot
 where Uge = 28
 order by EventNavn;
+
+
+#  Group by og having til at finde hvor trænere der har over et hold 
+select TrænerNavn, TrænerID, count(Holdtræner.TrænerID) as antalHold
+from Træner NATURAL left outer JOIN  HoldTræner
+group by TrænerNavn, TrænerID having  antalHold > 1;
