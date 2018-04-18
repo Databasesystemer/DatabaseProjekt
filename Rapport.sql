@@ -1,4 +1,4 @@
-Drop database if exists baneoversigt;
+Drop database if exists Baneoversigt;
 create database BaneOversigt;
 use BaneOversigt;
 
@@ -34,10 +34,10 @@ CREATE TABLE Bygning
     
 
 CREATE TABLE Baner
-	(BaneNavn			VARCHAR(15) NOT NULL,
+	(BaneNavn			VARCHAR(15) NOT NULL ,
      BygningsNavn		VARCHAR(15),
 	 PRIMARY KEY(BaneNavn),
-     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
+     FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE cascade
 	);
     
     CREATE TABLE Hold
@@ -55,7 +55,7 @@ CREATE TABLE Eventss
 	 Uge			DECIMAL(2,0),
      BygningsNavn	VARCHAR(15),
 	 PRIMARY KEY(EventID),
-     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE SET NULL,
+     FOREIGN KEY(TimeslotID) 	REFERENCES TimeSlot(TimeSlotID) 	ON DELETE cascade,
      FOREIGN KEY(BygningsNavn) 	REFERENCES Bygning(BygningsNavn) 	ON DELETE SET NULL
 	);
     
@@ -160,7 +160,8 @@ INSERT Eventss VALUES
 ('DB', 'Fodbold fest','K', '5','Fodbold'),
 ('DC', 'Kvinde yoga - Pensionister','L', '10','Badminton'),
 ('DD', '4C - Herfølgeskole','L', '20','Håndbold'),
-('DE', '9A - Hastrupskolen','M', '28','Håndbold');
+('DE', '9A - Hastrupskolen','M', '28','Håndbold'),
+('DF','Tantra for begyndere','M','28','Fodbold');
 
 INSERT TræningsSession VALUES
 ('CA','Bane 1F','A','Fodbold A'),
@@ -192,7 +193,6 @@ create user 'Jens'@'localhost' identified by 'SetPassword' ;
 create user 'Børge'@'localhost' identified by 'SetPassword' ;
 create user 'Hans'@'localhost' identified by 'SetPassword' ;
 create user 'Mikkel'@'localhost' identified by 'SetPassword' ;
-create user 'Iben'@'localhost' identified by 'SetPassword' ;
 
 
 grant select on baneoversigt.* to 'Mikkel'@'localhost';
@@ -204,4 +204,4 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'
 
 
 
-    
+
