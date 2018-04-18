@@ -18,7 +18,7 @@ group by TrænerNavn, TrænerID;
 # Hvilke Events bliver alfholdt i uge 28 og hvor bliver de afholdet henne 
 select EventNavn, DayCode, StartTime, EndTime, BygningsNavn
 From Eventss 
-natural  left outer join TimeSlot
+natural   join TimeSlot
 where Uge = 28
 order by EventNavn;
 
