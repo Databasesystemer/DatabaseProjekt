@@ -202,8 +202,6 @@ grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Marie'@
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Jens'@'localhost';
 grant SELECT, INSERT, UPDATE, DELETE, GRANT OPTION on baneoversigt.* to 'Hans'@'localhost';
 
-#show grants for 'Iben'@'localhost';
-drop user IF EXISTS 'Iben'@'localhost';
-grant ALL on * to 'Iben'@'localhost';
+
 
     
